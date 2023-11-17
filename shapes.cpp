@@ -48,21 +48,16 @@ double Rectangle::area()
 }
 
 int main() {
+  std::vector<Shape *> shapes;
 
-    std::vector<Shape*> shapes;
+  shapes.push_back(new Square(5));
+  shapes.push_back(new Circle(5));
+  shapes.push_back(new Rectangle(5, 2));
 
-    shapes.push_back(new Square(5.0));
-    shapes.push_back(new Circle(5.0));
-    shapes.push_back(new Rectangle(5.0, 2.0));
+  for (Shape* shape : shapes) {
+    std::cout << shape->description() << std::endl;
+    delete shape;
+  }
 
-    for (Shape* shape : shapes) {
-        std::cout << shape->description() << std::endl;
-    }
-
-    for (Shape* shape : shapes) {
-        delete shape;
-    }
-
-
-    return 0;
+  return 0;
 }
